@@ -1,0 +1,17 @@
+digraph {
+  rankdir=LR;
+  "root" -> "a" [label="project[a]"]
+  "root" -> "d" [label="project[d]"]
+  "a" -> "a[]" [label="distribute[ia]"]
+  "a[]" -> "a[].b" [label="project[b]"]
+  "a[]" -> "a[].c" [label="project[c]"]
+  "a[].b" -> "a[].b[]" [label="distribute[ib]"]
+  "+1" [label="+"]
+  "+2" [label="+"]
+  "a[].b[]" -> "+1"
+  "a[].c" -> "+1"
+  "+1" -> "+2"
+  "d" -> "+2"
+  "+2" -> "emap 1" [label="collect[ib]"]
+  "emap 1" -> "emap 2" [label="collect[ia]"]
+}

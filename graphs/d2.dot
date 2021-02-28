@@ -1,0 +1,8 @@
+digraph {
+  rankdir=LR;
+  "a" -> "a[]" [label="distribute[ia]"]
+  "a[]" -> "lookup"
+  "b" -> "b[]" [label="distribute[ib]"]
+  "b[]" -> "lookup" [label="select[ib=a[]]"]
+  "lookup" -> "emap" [label="collect[ia]"]
+}
